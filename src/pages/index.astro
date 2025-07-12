@@ -1,0 +1,199 @@
+---
+import Page from "../components/Page.astro";
+import Layout from "../layouts/Layout.astro";
+import CvSection from "../components/CvSection.astro";
+import CvSectionSkills from "../components/CvSectionSkills.astro";
+import CvHeader from "../components/CvHeader.astro";
+import CvSocials from "../components/CvSocials.astro";
+import CvSectionList from "../components/CvSectionList.astro";
+
+const education = [
+	{
+		title: "Ingeniería Electrónica",
+		institution: "Universidad Francisco de Paula Santander",
+		date: "02/2013 - 10/2022",
+		location: "Cúcuta / Colombia",
+	},
+	{
+		title: "Tecnólogo en Análisis y Desarrollo de Sistemas de Información",
+		institution: "SENA",
+		date: "01/2013 - 12/2015",
+		location: "Cúcuta / Colombia",
+	},
+	{
+		title: "Bachiller Técnico en Programación de Software",
+		institution: "Col. San José de Cúcuta",
+		date: "01/2009 - 01/2011",
+		location: "Cúcuta / Colombia",
+	},
+];
+
+const experience = [
+	{
+		title: "Desarrollador Backend",
+		institution: "Kibernum",
+		date: "05/2025 - 07/2025",
+		location: "Bogota / Colombia",
+		contact: "Mauro Gamboa +57 3504410372",
+	},
+	{
+		title: "Desarrollador Full Stack",
+		institution: "Cityplanning",
+		date: "02/2023 - 05/2025",
+		location: "Santiago / Chile",
+		contact: "Carolina Palma +56 932181677",
+	},
+	{
+		title: "Desarrollador Full Stack",
+		institution: "IFKColombia",
+		date: "03/2015 - 06/2023",
+		location: "Cúcuta / Colombia",
+		contact: "German Velandia +57 3108733397",
+	},
+];
+
+const skills = [
+	"HTML + CSS",
+	"JavaScript",
+	"NodeJS",
+	"ExpressJS",
+	"Vue",
+	"Nuxt",
+	"React",
+	"React Native",
+	"NextJS",
+	"CapacitorJS",
+	"Python",
+	"Flask",
+	"C#",
+	".Net",
+	"MySQL",
+	"SQL Server",
+	"PostgreSQL",
+];
+
+const projects = [
+	{
+		title: "ADM Medicarte",
+		date: "05/2025 - 07/2025",
+		description:
+			"Sistema para coordinar y monitorear servicios médicos domiciliarios, con seguimiento en tiempo real y reportes clínicos.",
+		skills: ["ExpressJS", "MySQL", "Docker", "AWS", "Git"],
+	},
+	{
+		title: "CityRed ",
+		date: "11/2023 - 01/2025",
+		description:
+			"Dashboard de análisis del transporte público en Santiago, con visualización de KPIs y datos masivos desde BigQuery.",
+		skills: [
+			"NestJS",
+			"Nuxt3",
+			"BigQuery",
+			"Vue.js",
+			"Docker",
+			"TypeScript",
+			"AWS",
+		],
+	},
+	{
+		title: "CityData",
+		date: "03/2023 - 12/2024",
+		description:
+			"Sistema de formularios dinámicos con lógica condicional, app móvil con GPS y panel de administración web.",
+		skills: [
+			"NestJS",
+			"Nuxt3",
+			"MongoDB",
+			"CapacitorJS",
+			"TypeScript",
+			"Docker",
+			"Node.js",
+		],
+	},
+	{
+		title: "CityTrack",
+		date: "08/2023 - 05/2024",
+		description:
+			"Plataforma para monitoreo de rutas y análisis geoespacial con datos GPS en tiempo real para el transporte de Santiago de Chile.",
+		skills: [
+			"NestJS",
+			"Nuxt3",
+			"MySQL",
+			"TypeScript",
+			"Vue.js",
+			"Docker",
+			"Node.js",
+		],
+	},
+	{
+		title: "Sistema de Monitoreo de Infraestructura Hyper-V",
+		date: "11/2021",
+		description:
+			"Supervisión de máquinas virtuales Hyper-V con alertas en tiempo real y análisis de replicación.",
+		skills: [
+			".NET C#",
+			"SQL Server",
+			"Vue.js",
+			"Docker",
+			"TypeScript",
+			"MVC",
+		],
+	},
+	{
+		title: "PIXAS",
+		date: "10/2015 - 10/2023",
+		description:
+			"Gestión documental empresarial con flujos automatizados, trazabilidad y control de versiones.",
+		skills: [
+			".NET C#",
+			"SQL Server",
+			"Vue.js",
+			"Docker",
+			"jQuery",
+			"MVC",
+			"GitLab",
+		],
+	},
+	{
+		title: "IKSCockpit",
+		date: "03/2015 - 10/2023",
+		description:
+			"Control de tareas empresariales con seguimiento, alertas y reportes.",
+		skills: [
+			".NET C#",
+			"SQL Server",
+			"Vue.js",
+			"Docker",
+			"MVC",
+			"GitLab",
+			"HTML5",
+		],
+	},
+];
+---
+
+<Layout>
+	<Page>
+		<CvHeader />
+		<CvSocials />
+		<div class="flex flex-row px-12 py-6 gap-8">
+			<div class="flex flex-col gap-6 flex-1">
+				<CvSection title="EDUCACIÓN" items={education} />
+				<CvSection title="EXPERIENCIA PROFESIONAL" items={experience} />
+			</div>
+			<div class="flex flex-col gap-6 flex-1">
+				<CvSectionSkills title="HABILIDADES" skills={skills} />
+				<CvSectionList title="PROYECTOS" items={projects.slice(0, 3)} />
+			</div>
+		</div>
+	</Page>
+	<Page>
+		<div class="flex flex-row px-12 py-6 gap-8">
+			<div class="flex flex-col gap-6 flex-1">
+				<CvSectionList title="" items={projects.slice(3)} />
+			</div>
+
+			<div class="flex flex-col gap-6 flex-1"></div>
+		</div>
+	</Page>
+</Layout>

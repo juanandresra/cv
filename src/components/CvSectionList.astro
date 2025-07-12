@@ -1,0 +1,25 @@
+---
+const { title, items } = Astro.props;
+---
+
+<div class="flex flex-col gap-6">
+	<h1 class="text-[#449399] font-bold text-md underline underline-offset-4 decoration-2">
+		{title}
+	</h1>
+	<ul class="flex flex-col gap-4 text-sm">
+		{items.map((item: any) => (
+			<li>
+				<div class="flex flex-col gap-1 leading-none">
+					<span class="font-bold leading-none">{item.title}</span>
+					<span class="italic text-xs text-[#449399] flex justify-between leading-none">{item.date}</span>
+					<div class="leading-none mb-1 flex flex-row">
+						<span class="flex-1">{item.description}</span>
+					</div>
+					<ul class="flex flex-row flex-wrap gap-2">
+						{item.skills.map((skill: string) => <li class="text-white text-xs bg-gray-400 rounded px-2 py-1 whitespace-nowrap">{skill}</li>)}
+					</ul>
+				</div>
+			</li>
+		))}
+	</ul>
+</div>

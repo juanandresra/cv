@@ -1,0 +1,30 @@
+---
+import { Image } from "astro:assets";
+import localBirdImage from "../assets/photo.png";
+---
+
+<div class="bg-[#313C4E] text-white flex flex-row">
+    <div class="px-12 py-8 gap-2 flex flex-col">
+        <div class="text-3xl">Juan Andres Rodriguez Arenas</div>
+        <div class="text-[#449399] text-lg">Software Engineer</div>
+        <div class="text-sm">
+            Desarrollador Full Stack con sólida formación académica en
+            Ingeniería Electrónica y Análisis de Sistemas, complementada por más
+            de 9 años de experiencia en desarrollo de software. He liderado y
+            participado en proyectos backend y frontend para sectores como
+            salud, transporte e infraestructura, utilizando tecnologías modernas
+            y metodologías ágiles.
+        </div>
+    </div>
+    <div class="px-12 h-auto items-center justify-center flex">
+        <div
+            class="relative size-32 rounded-full overflow-hidden border-3 border-[#449399]"
+        >
+            <Image
+                src={localBirdImage}
+                alt="Photo"
+                class="h-full w-full object-cover"
+            />
+        </div>
+    </div>
+</div>
