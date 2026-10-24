@@ -1,137 +1,314 @@
 ---
-import Page from "../components/Page.astro";
 import Layout from "../layouts/Layout.astro";
-import CvSection from "../components/CvSection.astro";
-import CvSectionSkills from "../components/CvSectionSkills.astro";
+import Page from "../components/Page.astro";
 import CvHeader from "../components/CvHeader.astro";
 import CvSocials from "../components/CvSocials.astro";
-import CvSectionList from "../components/CvSectionList.astro";
+import CvSectionEducation from "../components/CvSectionEducation.astro";
+import CvSectionExperience from "../components/CvSectionExperience.astro";
+import CvSectionSkills from "../components/CvSectionSkills.astro";
+import CvSectionProjects from "../components/CvSectionProjects.astro";
+import CvSectionLanguages from "../components/CvSectionLanguages.astro";
 
 const education = [
 	{
 		title: "Ingeniería Electrónica",
 		institution: "Universidad Francisco de Paula Santander",
-		date: "02/2013 - 10/2022",
+		date: "Ene, 2013 - Sep, 2022",
 		location: "Cúcuta / Colombia",
 	},
 	{
 		title: "Tecnólogo en Análisis y Desarrollo de Sistemas de Información",
 		institution: "SENA",
-		date: "01/2013 - 12/2015",
+		date: "Dic, 2012 - Nov, 2015",
 		location: "Cúcuta / Colombia",
+		pasantia:
+			"Desarrollo y soporte de soluciones de software para el sector salud en ASP.NET MVC (.NET) y SQL Server.",
 	},
 	{
 		title: "Bachiller Técnico en Programación de Software",
 		institution: "Col. San José de Cúcuta",
-		date: "01/2009 - 01/2011",
+		date: "Dic, 2008 - Dic, 2010",
 		location: "Cúcuta / Colombia",
 	},
 ];
 
-const experience = [
+const experienceA = [
+	{
+		title: "Especialista I",
+		company: "Davivienda",
+		subtitle:
+			"Desarrollo y evolución de soluciones digitales bancarias de alta concurrencia en entornos Multi-Cloud.",
+		date: "Oct, 2025 - Actualidad",
+		location: "Colombia",
+		responsibilities: [
+			"Desarrollo Frontend web y móvil con Angular y React Native, e integración de microservicios Backend en Node.js y Java bajo estándares de seguridad financiera y alta disponibilidad (+99.9%).",
+			"Despliegue y operación en arquitectura híbrida Google Cloud (GCP) (GKE, Cloud Run, Pub/Sub, Cloud Storage) y AWS (EKS/ECS, Lambda, S3, CloudWatch, IAM) para servicios transaccionales de alta concurrencia.",
+		],
+		contact: "Carlos Robayo (Arquitecto de soluciones) | +57 3229496709",
+	},
 	{
 		title: "Desarrollador Backend",
-		institution: "Kibernum",
-		date: "05/2025 - 07/2025",
-		location: "Bogota / Colombia",
-		contact: "Mauro Gamboa +57 3504410372",
+		company: "Kibernum",
+		subtitle:
+			"Contrato temporal de soporte y desarrollo evolutivo en Node.js para el programa de salud Medicarte.",
+		date: "Abr, 2025 - Jun, 2025",
+		location: "Colombia",
+		responsibilities: [
+			"Desarrollo y optimización en módulos de agendamiento de citas médicas en Node.js, agilizando tiempos de respuesta en consultas de alta demanda clínica.",
+			"Diagnóstico y mitigación de incidencias críticas en pods y microservicios sobre AWS (Kubernetes EKS, ECR, EC2, S3, CloudWatch Logs, ALB e IAM).",
+		],
+		contact: "Mauro Gamboa | +57 3504410372",
+	},
+];
+
+const experienceB = [
+	{
+		title: "Líder de Proyectos, Desarrollador FullStack & Arquitecto Cloud",
+		company: "Cityplanning",
+		subtitle:
+			"Liderazgo de proyectos tecnológicos, arquitectura, Backend, Frontend y Mobile para planificación urbana y transporte público.",
+		date: "Ene, 2023 - Nov, 2024",
+		location: "Chile",
+		responsibilities: [
+			"Liderazgo técnico, diseño y despliegue de infraestructura Cloud propia en VPS con Docker Swarm, Dokploy y CapRover, reduciendo costos operativos frente a nubes públicas.",
+			"Dirección técnica de CityData v1 (CapacitorJS + Vue.js) y liderazgo de su evolución a CityData v2: arquitectura de 9 microservicios NestJS, app móvil Offline-First y panel web React.",
+			"Liderazgo, desarrollo y optimización en CityTrack y CityRed sobre VPS con Docker Swarm, reduciendo cálculos geoespaciales a segundos para flotas de +500 buses con C++, BigQuery y WebSockets.",
+		],
+		contact: "Carolina Palma (Gerente Técnico) | +56 9 3218 1677",
 	},
 	{
-		title: "Desarrollador Full Stack",
-		institution: "Cityplanning",
-		date: "02/2023 - 05/2025",
-		location: "Santiago / Chile",
-		contact: "Carolina Palma +56 932181677",
-	},
-	{
-		title: "Desarrollador Full Stack",
-		institution: "IFKColombia",
-		date: "03/2015 - 06/2023",
+		title: "Desarrollador FullStack",
+		company: "IFK Colombia",
+		subtitle:
+			"Empresa desarrolladora de soluciones tecnológicas para compañías extranjeras (proveedor de Swissaxis).",
+		date: "Feb, 2015 - Jun, 2024",
 		location: "Cúcuta / Colombia",
-		contact: "German Velandia +57 3108733397",
+		responsibilities: [
+			"Desarrollo de interfaces Frontend en Vue.js, AngularJS y ASP.NET WebForms, integradas con servicios y microservicios Backend en .NET (C#).",
+			"Diseño, optimización y afinamiento de consultas complejas sobre bases de datos SQL Server e infraestructura en Windows Server, mejorando tiempos de carga en reportes.",
+			"Construcción y mantenimiento de sistemas empresariales para clientes en Suiza: gestión documental (PIXAS), depósitos de flotas (BeDips) y tareas/GRC (IKSCockpit).",
+		],
+		contact: "Germa Enrique Velandia Riveros | +57 3108733397",
+	},
+	{
+		title: "Auxiliar de Sistemas y Desarrollo",
+		company: "Clínica Médico Quirúrgica",
+		subtitle:
+			"Desarrollo y soporte de software clínico para entidad prestadora de servicios de salud.",
+		date: "Dic, 2013 - Ene, 2015",
+		location: "Cúcuta / Colombia",
+		responsibilities: [
+			"Desarrollo, mantenimiento y soporte evolutivo de software para el sector salud construido en ASP.NET MVC (.NET / C#) con bases de datos SQL Server.",
+		],
+		contact: "Gloria Milena Urbina | +57 3112053858",
 	},
 ];
 
-const skills = [
-	"HTML + CSS",
-	"JavaScript",
-	"NodeJS",
-	"ExpressJS",
-	"Vue",
-	"Nuxt",
-	"React",
-	"React Native",
-	"NextJS",
-	"CapacitorJS",
-	"Python",
-	"Flask",
-	"C#",
-	".Net",
-	"MySQL",
-	"SQL Server",
-	"PostgreSQL",
-	"Java"
-
-];
-
-const projects = [
+const allSkills = [
 	{
-		title: "ADM Medicarte",
-		date: "05/2025 - 07/2025",
-		description:
-			"Sistema para coordinar y monitorear servicios médicos domiciliarios, con seguimiento en tiempo real y reportes clínicos.",
-		skills: ["ExpressJS", "MySQL", "Docker", "AWS", "Git"],
-	},
-	{
-		title: "CityRed ",
-		date: "11/2023 - 01/2025",
-		description:
-			"Dashboard de análisis del transporte público en Santiago, con visualización de KPIs y datos masivos desde BigQuery.",
+		category: "Backend, Motores & Arquitectura",
 		skills: [
+			"Node.js",
+			"Java",
 			"NestJS",
-			"Nuxt3",
-			"BigQuery",
-			"Vue.js",
-			"Docker",
-			"TypeScript",
-			"AWS",
+			".NET / C#",
+			"C++",
+			"Python / Flask",
+			"Microservicios",
+			"Optimización de Sistemas",
+			"WebSockets",
+			"Turf.js (GIS)",
+			"Prisma ORM",
 		],
 	},
 	{
-		title: "CityData",
-		date: "03/2023 - 12/2024",
-		description:
-			"Sistema de formularios dinámicos con lógica condicional, app móvil con GPS y panel de administración web.",
+		category: "Frontend & Desarrollo Móvil",
 		skills: [
-			"NestJS",
-			"Nuxt3",
-			"MongoDB",
+			"TypeScript / JS",
+			"Angular",
+			"React Native",
+			"Expo",
+			"React",
+			"Next.js",
+			"TanStack Start",
+			"Zustand",
+			"Vue.js",
+			"Nuxt",
 			"CapacitorJS",
-			"TypeScript",
-			"Docker",
-			"Node.js",
+			"Mapbox / Chart.js",
+			"AngularJS",
+			"ASP.NET MVC / WebForms",
+			"HTML / CSS / Tailwind",
 		],
 	},
 	{
-		title: "CityTrack",
-		date: "08/2023 - 05/2024",
-		description:
-			"Plataforma para monitoreo de rutas y análisis geoespacial con datos GPS en tiempo real para el transporte de Santiago de Chile.",
+		category: "Cloud, DevOps & Seguridad",
 		skills: [
-			"NestJS",
-			"Nuxt3",
-			"MySQL",
-			"TypeScript",
-			"Vue.js",
-			"Docker",
-			"Node.js",
+			"Google Cloud (GCP)",
+			"AWS (EKS, Lambda, S3)",
+			"Servidores VPS (Linux)",
+			"Kubernetes (EKS/GKE)",
+			"Docker / Swarm",
+			"Dokploy / CapRover",
+			"Windows Server",
+			"KrakenD Gateway",
+			"Keycloak IAM / OAuth2",
 		],
 	},
 	{
-		title: "Sistema de Monitoreo de Infraestructura Hyper-V",
-		date: "11/2021",
-		description:
-			"Supervisión de máquinas virtuales Hyper-V con alertas en tiempo real y análisis de replicación.",
+		category: "Bases de Datos & Caché",
+		skills: [
+			"PostgreSQL / PostGIS",
+			"BigQuery (GCP)",
+			"PgBouncer",
+			"SQL Server",
+			"Redis / Valkey",
+			"MySQL",
+		],
+	},
+];
+
+const projectsA = [
+	{
+		title: "Atención Domiciliaria (Medicarte)",
+		date: "Abr, 2025 - Jun, 2025",
+		features: [
+			{
+				desc: "Sistema de atención médica domiciliaria y agendamiento de citas desarrollado en Node.js, desplegado y monitoreado sobre AWS (Kubernetes EKS, ECR, EC2, S3 y CloudWatch).",
+			},
+		],
+		skills: ["Node.js", "ExpressJS", "MySQL", "Docker", "AWS", "Git"],
+	},
+	{
+		title: "CityRed (Analítica de Transporte Público)",
+		date: "Oct, 2023 - Dic, 2024",
+		features: [
+			{
+				name: "Backend, BigQuery y Rendimiento",
+				desc: "Plataforma analítica para millones de registros de transporte con NestJS, BigQuery, caché Redis y cálculos en C++, reduciendo reportes operacionales a pocos segundos.",
+			},
+			{
+				name: "Frontend, Mapbox y Chart.js",
+				desc: "Frontend en Nuxt/Vue.js con mapas interactivos en Mapbox y tableros de indicadores operacionales con Chart.js.",
+			},
+		],
+		skills: [
+			"Node.js",
+			"NestJS",
+			"Vue.js",
+			"Nuxt 3",
+			"BigQuery",
+			"Redis",
+			"C++",
+			"Mapbox",
+			"Docker",
+		],
+	},
+];
+
+const projectsB = [
+	{
+		title: "CityData v2 (Plataforma Multi-Organización de Captura Urbana)",
+		date: "Mar, 2024 - Nov, 2024",
+		features: [
+			{
+				name: "Arquitectura de Microservicios",
+				desc: "Lideró la reescritura de CityData v1: 9 microservicios en NestJS con gateway KrakenD, Keycloak, Valkey y PostgreSQL/PostGIS, más un panel web en React (TanStack Start) y una app móvil Offline-First en React Native + Expo.",
+			},
+			{
+				name: "Diseñador Visual de Flujos (JEXL)",
+				desc: "Reemplazó las validaciones en JavaScript por un diseñador visual que compila a JEXL y se evalúa 100% offline: lógica condicional, validaciones cruzadas, variables autocalculadas y cálculos espaciales por GPS.",
+			},
+			{
+				name: "Gestión de Estudios y Cumplimiento",
+				desc: "Roles (RBAC), campañas con formularios versionados, asignación de encuestadores, metas por franja horaria, resúmenes multiestudio con mapas de calor, matriz de cumplimiento y exportación masiva a Excel.",
+			},
+		],
+		skills: [
+			"Node.js",
+			"NestJS",
+			"React Native",
+			"Expo",
+			"React",
+			"TanStack Start",
+			"PostgreSQL",
+			"Keycloak",
+			"Docker",
+		],
+	},
+	{
+		title: "CityData v1 (Captura de Datos Urbanos en Campo)",
+		date: "Feb, 2023 - Mar, 2024",
+		features: [
+			{
+				name: "App Híbrida de Captura",
+				desc: "Desarrolló la aplicación de campo con CapacitorJS y Vue.js para que los encuestadores registraran mediciones urbanas desde el móvil.",
+			},
+			{
+				name: "Backend API",
+				desc: "Construyó la API en NestJS que daba soporte a la aplicación de campo.",
+			},
+			{
+				name: "Validaciones en JavaScript",
+				desc: "Implementó las reglas de validación directamente en JavaScript, lo que motivó el diseño del motor de flujos JEXL en la v2.",
+			},
+		],
+		skills: [
+			"Node.js",
+			"NestJS",
+			"Vue.js",
+			"Nuxt 3",
+			"Capacitor",
+			"Prisma ORM",
+			"PostgreSQL",
+			"Leaflet",
+		],
+	},
+	{
+		title: "CityTrack (Telemetría GPS en Tiempo Real)",
+		date: "Jul, 2023 - Abr, 2024",
+		features: [
+			{
+				name: "Geometría Espacial (Turf.js)",
+				desc: "Algoritmos con Turf.js para la detección automática de sentido de ruta (Ida/Regreso), geocercas poligonales para medir la permanencia de buses y el cálculo de intervalos de tiempo (headway) entre buses por servicio y ruta.",
+			},
+			{
+				name: "Arquitectura Reactiva y Tiempo Real",
+				desc: "Frontend reactivo en Nuxt/Vue.js y Backend en NestJS con WebSockets para actualizar en vivo la flota de +500 buses cada minuto y generar reportes operacionales sobre VPS con Docker Swarm.",
+			},
+			{
+				name: "Cómputo de Ultra-Baja Latencia",
+				desc: "Servicios nativos en C++ y consultas espaciales optimizadas en PostgreSQL/PostGIS para completar el cálculo en pocos segundos antes de cada corte por minuto, con Python para el procesamiento masivo de reportes en Excel.",
+			},
+		],
+		skills: [
+			"Node.js",
+			"NestJS",
+			"Vue.js",
+			"Nuxt 3",
+			"Prisma ORM",
+			"PostgreSQL",
+			"WebSockets",
+			"Mapbox GL",
+			"Docker",
+		],
+	},
+];
+
+const projectsC = [
+	{
+		title: "Sistema de Monitoreo Hyper-V",
+		date: "Oct, 2021",
+		features: [
+			{
+				name: "Monitoreo Remoto",
+				desc: "Sistema de monitoreo remoto del estado, los recursos y la disponibilidad de máquinas virtuales basadas en Hyper-V.",
+			},
+			{
+				name: "Stack",
+				desc: "Desarrollado en .NET (C#) con SQL Server sobre Windows Server, con interfaz web para consultar el estado de la infraestructura virtual.",
+			},
+		],
 		skills: [
 			".NET C#",
 			"SQL Server",
@@ -142,10 +319,18 @@ const projects = [
 		],
 	},
 	{
-		title: "PIXAS",
-		date: "10/2015 - 10/2023",
-		description:
-			"Gestión documental empresarial con flujos automatizados, trazabilidad y control de versiones.",
+		title: "PIXAS (Gestión Documental)",
+		date: "Sep, 2015 - Sep, 2023",
+		features: [
+			{
+				name: "Gestión Documental",
+				desc: "Sistema empresarial de administración de archivos y gestión documental, con Frontend en Vue.js, AngularJS y ASP.NET WebForms.",
+			},
+			{
+				name: "Backend y Base de Datos",
+				desc: "Backend en .NET (C#) y base de datos SQL Server sobre Windows Server, con optimización de rendimiento y afinamiento de consultas complejas.",
+			},
+		],
 		skills: [
 			".NET C#",
 			"SQL Server",
@@ -157,10 +342,18 @@ const projects = [
 		],
 	},
 	{
-		title: "IKSCockpit",
-		date: "03/2015 - 10/2023",
-		description:
-			"Control de tareas empresariales con seguimiento, alertas y reportes.",
+		title: "IKSCockpit (Control Interno, Riesgos y Cumplimiento)",
+		date: "Feb, 2015 - Sep, 2023",
+		features: [
+			{
+				name: "Control Interno y Cumplimiento (GRC)",
+				desc: "Cuadro de mando web para la gestión del Sistema de Control Interno, riesgos y cumplimiento de empresas y administraciones públicas en Suiza, con delegación de tareas de control y seguimiento del progreso mediante flujos de trabajo.",
+			},
+			{
+				name: "Reportes y Seguridad",
+				desc: "Generación de informes de auditoría con un solo clic y seguridad de nivel bancario: autenticación de tres factores, restricciones por IP y adaptación a la normativa suiza de protección de datos y FINMA.",
+			},
+		],
 		skills: [
 			".NET C#",
 			"SQL Server",
@@ -171,31 +364,76 @@ const projects = [
 			"HTML5",
 		],
 	},
+	{
+		title: "BeDips (Gestión de Depósitos de Flotas)",
+		date: "Feb, 2015 - Sep, 2023",
+		features: [
+			{
+				name: "Gestión de Cocheras",
+				desc: "Plataforma 100% web para optimizar la logística y el estacionamiento de flotas de transporte público (buses y tranvías): disposición de vehículos, flujo de entrada/salida y asignación de carriles.",
+			},
+			{
+				name: "Localización en Tiempo Real",
+				desc: "Integración con sistemas de posicionamiento en interiores (RTLS) para ubicar con exactitud cada vehículo dentro del depósito, implementada en las cocheras de vbl (Lucerna, Suiza).",
+			},
+		],
+		skills: [
+			".NET C#",
+			"SQL Server",
+			"Vue.js",
+			"AngularJS",
+			"MVC",
+			"GitLab",
+		],
+	},
+];
+
+const languages = [
+	{ language: "Español", level: "Competencia Nativa o Bilingüe" },
+	{ language: "Inglés", level: "Competencia Profesional Limitada" },
 ];
 ---
 
 <Layout>
-	<Page>
+	<!-- PÁGINA 1: PERFIL Y EXPERIENCIA LABORAL COMPLETA -->
+	<Page pageNumber={1} totalPages={3}>
 		<CvHeader />
 		<CvSocials />
-		<div class="flex flex-row px-12 py-6 gap-8">
-			<div class="flex flex-col gap-6 flex-1">
-				<CvSection title="EDUCACIÓN" items={education} />
-				<CvSection title="EXPERIENCIA PROFESIONAL" items={experience} />
+		<div class="flex flex-row px-12 py-6 gap-8 flex-1">
+			<div class="flex flex-col gap-3 flex-1">
+				<CvSectionEducation items={education} />
+				<CvSectionExperience
+					title="EXPERIENCIA LABORAL"
+					items={experienceA}
+				/>
 			</div>
-			<div class="flex flex-col gap-6 flex-1">
-				<CvSectionSkills title="HABILIDADES" skills={skills} />
-				<CvSectionList title="PROYECTOS" items={projects.slice(0, 3)} />
+			<div class="flex flex-col gap-3 flex-1">
+				<CvSectionExperience title="" items={experienceB} />
 			</div>
 		</div>
 	</Page>
-	<Page>
-		<div class="flex flex-row px-12 py-6 gap-8">
-			<div class="flex flex-col gap-6 flex-1">
-				<CvSectionList title="" items={projects.slice(3)} />
-			</div>
 
-			<div class="flex flex-col gap-6 flex-1"></div>
+	<!-- PÁGINA 2: FORMACIÓN, HABILIDADES TÉCNICAS, IDIOMAS Y PROYECTOS -->
+	<Page pageNumber={2} totalPages={3}>
+		<div class="flex flex-row px-12 py-12 pb-10 gap-8 flex-1">
+			<div class="flex flex-col gap-4 flex-1">
+				<CvSectionSkills categories={allSkills} />
+				<CvSectionLanguages items={languages} />
+				<CvSectionProjects title="PROYECTOS" items={projectsA} />
+			</div>
+			<div class="flex flex-col flex-1">
+				<CvSectionProjects title="" items={projectsB} />
+			</div>
+		</div>
+	</Page>
+
+	<!-- PÁGINA 3: PROYECTOS DE ANALÍTICA, TELEMETRÍA Y SISTEMAS -->
+	<Page pageNumber={3} totalPages={3}>
+		<div class="flex flex-row px-12 py-12 gap-8 flex-1">
+			<div class="flex flex-col flex-1">
+				<CvSectionProjects title="" items={projectsC} />
+			</div>
+			<div class="flex flex-col flex-1"></div>
 		</div>
 	</Page>
 </Layout>

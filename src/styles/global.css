@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @page {
-    size: A4;
+    size: A4 portrait;
     margin: 0;
 }
 
@@ -15,22 +15,33 @@ body {
 .a4 {
     width: 21cm;
     height: 29.7cm;
+    max-height: 29.7cm;
     margin: 1cm auto;
     background: white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     page-break-after: always;
+    break-after: page;
     box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
 }
 
 @media print {
-    body {
+    html, body {
         background: none;
+        margin: 0;
+        padding: 0;
     }
 
     .a4 {
         box-shadow: none;
         margin: 0;
+        width: 21cm;
+        height: 29.7cm;
+        max-height: 29.7cm;
+        overflow: hidden;
         page-break-after: always;
+        break-after: page;
     }
 }
 

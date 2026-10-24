@@ -1,3 +1,19 @@
-<div class="a4 flex flex-col relative">
-    <slot />
+---
+interface Props {
+    pageNumber?: number;
+    totalPages?: number;
+}
+
+const { pageNumber, totalPages = 3 } = Astro.props;
+---
+
+<div class="a4 flex flex-col justify-between relative box-border pb-3 print:pb-2.5">
+    <div class="flex flex-col flex-1">
+        <slot />
+    </div>
+    {pageNumber && (
+        <div class="px-12 text-right text-[10px] text-gray-500">
+            Página {pageNumber} de {totalPages}
+        </div>
+    )}
 </div>

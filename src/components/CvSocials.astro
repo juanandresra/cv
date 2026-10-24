@@ -3,26 +3,26 @@ import { Icon } from "astro-icon/components";
 ---
 
 <ul
-    class="grid grid-rows-3 grid-flow-col grid-cols-2 gap-1.5 bg-[#222A33] px-12 py-3 text-white"
+    class="flex flex-row flex-wrap justify-between items-center gap-2 bg-[#222A33] px-12 py-1.5 text-white text-xs"
 >
-    <li class="flex items-center gap-2 text-sm">
-        <Icon class={"size-4"} name="mdi:email" />
-        jarodriguez207@gmail.com
+    <li class="flex items-center gap-1.5">
+        <Icon class={"size-3.5 text-[#449399]"} name="mdi:email" />
+        <a href="mailto:jarodriguez207@gmail.com" class="hover:underline">jarodriguez207@gmail.com</a>
     </li>
-    <li class="flex items-center gap-2 text-sm">
-        <Icon class={"size-4"} name="mdi:location" />
-        Cucuta, Colombia
+    <li class="flex items-center gap-1.5">
+        <Icon class={"size-3.5 text-[#449399]"} name="mdi:phone" />
+        <a href="tel:+573016224924" class="hover:underline">+57 3016224924</a>
     </li>
-    <li class="flex items-center gap-2 text-sm">
-        <Icon class={"size-4"} name="mdi:github" />
-        github.com/juanandresra
+    <li class="flex items-center gap-1.5">
+        <Icon class={"size-3.5 text-[#449399]"} name="mdi:location" />
+        <span>Bogotá, Colombia</span>
     </li>
-    <li class="flex items-center gap-2 text-sm">
-        <Icon class={"size-4"} name="mdi:phone" />
-        +57 3016224924
+    <li class="flex items-center gap-1.5">
+        <Icon class={"size-3.5 text-[#449399]"} name="mdi:linkedin" />
+        <a href="https://linkedin.com/in/juanandresra" target="_blank" rel="noopener noreferrer" class="hover:underline">juanandresra</a>
     </li>
-    <li class="flex items-center gap-2 text-sm">
-        <Icon class={"size-4"} name="mdi:linkedin" />
-        linkedin.com/in/juanandresra
+    <li class="flex items-center gap-1.5">
+        <Icon class={"size-3.5 text-[#449399]"} name="mdi:github" />
+        <a href="https://github.com/juanandresra" target="_blank" rel="noopener noreferrer" class="hover:underline">juanandresra</a>
     </li>
 </ul>

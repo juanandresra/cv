@@ -1,0 +1,36 @@
+---
+export interface LanguageItem {
+	language: string;
+	level: string;
+}
+
+interface Props {
+	title?: string;
+	items?: LanguageItem[];
+}
+
+const {
+	title = "IDIOMAS",
+	items = [
+		{ language: "Español", level: "Competencia Nativa o Bilingüe" },
+		{ language: "Inglés", level: "Competencia Profesional Limitada" },
+	],
+} = Astro.props;
+---
+
+<div class="flex flex-col gap-2">
+	<h2 class="text-[#449399] font-bold text-sm tracking-wide uppercase underline underline-offset-4 decoration-2">
+		{title}
+	</h2>
+	<ul class="flex flex-col gap-1.5 text-xs">
+		{
+			items.map((item) => (
+				<li class="flex items-center gap-2">
+					<span class="text-[#449399] font-bold shrink-0">•</span>
+					<span class="font-bold text-gray-900 text-sm">{item.language}:</span>
+					<span class="italic text-xs text-gray-600">{item.level}</span>
+				</li>
+			))
+		}
+	</ul>
+</div>

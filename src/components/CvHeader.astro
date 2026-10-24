@@ -3,26 +3,19 @@ import { Image } from "astro:assets";
 import localBirdImage from "../assets/photo.png";
 ---
 
-<div class="bg-[#313C4E] text-white flex flex-row">
-    <div class="px-12 py-8 gap-2 flex flex-col">
-        <div class="text-3xl">Juan Andres Rodriguez Arenas</div>
-        <div class="text-[#449399] text-lg">Software Engineer</div>
-        <div class="text-sm">
-            Desarrollador Full Stack con sólida formación académica en
-            Ingeniería Electrónica y Análisis de Sistemas, complementada por más
-            de 9 años de experiencia en desarrollo de software. He liderado y
-            participado en proyectos backend y frontend para sectores como
-            salud, transporte e infraestructura, utilizando tecnologías modernas
-            y metodologías ágiles.
-        </div>
+<div class="bg-[#313C4E] text-white flex flex-row items-center px-12 pt-6 pb-6 gap-5">
+    <div class="flex-1 flex flex-col gap-0.5">
+        <h1 class="text-2xl font-bold tracking-tight text-white leading-tight">Juan Andres Rodriguez Arenas</h1>
+        <div class="text-[#449399] font-semibold text-sm">Ingeniero de Software Senior | Full Stack & Arquitecto Cloud</div>
+        <p class="text-[11px] leading-snug text-gray-200 text-justify">
+            Ingeniero de Software Senior & Arquitecto Cloud con más de 12 años de experiencia diseñando, desarrollando y optimizando soluciones tecnológicas de alta disponibilidad para los sectores bancario, transporte público, salud y empresarial. Especializado en arquitecturas de microservicios y backend de alto rendimiento con Node.js, NestJS, Java y .NET (C#), desarrollo Full Stack con Angular, React y móvil Offline-First (React Native), e infraestructura cloud híbrida en AWS y Google Cloud (GCP). Experiencia liderando equipos técnicos, diseñando sistemas distribuidos, procesamiento geoespacial y afinamiento de bases de datos masivas (PostgreSQL/PostGIS, BigQuery, SQL Server) con Docker Swarm y Kubernetes.
+        </p>
     </div>
-    <div class="px-12 h-auto items-center justify-center flex">
-        <div
-            class="relative size-32 rounded-full overflow-hidden border-3 border-[#449399]"
-        >
+    <div class="shrink-0 flex items-center justify-center pl-2">
+        <div class="relative size-30 rounded-full overflow-hidden border-3 border-[#449399] shadow-md">
             <Image
                 src={localBirdImage}
-                alt="Photo"
+                alt="Juan Andres Rodriguez Arenas"
                 class="h-full w-full object-cover"
             />
         </div>

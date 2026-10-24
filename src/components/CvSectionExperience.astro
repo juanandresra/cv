@@ -1,0 +1,82 @@
+---
+import { Icon } from "astro-icon/components";
+
+export interface ExperienceItem {
+	title: string;
+	company: string;
+	subtitle?: string;
+	date: string;
+	location: string;
+	responsibilities?: string[];
+	contact?: string;
+}
+
+interface Props {
+	title?: string;
+	items: ExperienceItem[];
+}
+
+const { title = "EXPERIENCIA LABORAL", items } = Astro.props;
+---
+
+<div class="flex flex-col gap-2">
+	{title && (
+		<h2 class="text-[#449399] font-bold text-sm tracking-wide uppercase underline underline-offset-4 decoration-2">
+			{title}
+		</h2>
+	)}
+	<ul class="flex flex-col gap-1.5">
+		{
+			items.map((item) => (
+				<li class="flex flex-col text-xs leading-snug">
+					<span class="font-bold text-gray-900 text-sm leading-tight">{item.title}</span>
+					<span class="font-semibold text-gray-800 text-xs">{item.company}</span>
+					{item.subtitle && (
+						<p class="italic text-[11px] text-gray-500 leading-snug my-0.5">
+							{item.subtitle}
+						</p>
+					)}
+					<div class="italic text-xs text-[#449399] flex justify-between">
+						<span>{item.date}</span>
+						<span>{item.location}</span>
+					</div>
+
+					{item.responsibilities && item.responsibilities.length > 0 && (
+						<div class="mt-0.5">
+							<span class="text-xs font-semibold text-gray-800 block">Responsabilidades</span>
+							<ul class="flex flex-col gap-0.5 mt-0.5">
+								{item.responsibilities.map((resp) => (
+									<li class="flex items-start gap-1.5 text-[11px] text-gray-700 leading-snug text-justify">
+										<span class="text-[#449399] font-bold shrink-0">•</span>
+										<span>{resp}</span>
+									</li>
+								))}
+							</ul>
+						</div>
+					)}
+
+					{item.contact && (() => {
+						const parts = item.contact.split("|").map((s: string) => s.trim());
+						if (parts.length === 2) {
+							return (
+								<div class="mt-1 pt-0.5 border-t border-gray-100 flex flex-wrap items-center justify-between gap-x-2 text-[11px] text-gray-600">
+									<span class="font-medium text-gray-700">{parts[0]}</span>
+									<span class="flex items-center gap-1 text-[#449399] whitespace-nowrap">
+										<Icon class={"size-3 shrink-0"} name="mdi:phone" />
+										<a href={`tel:${parts[1].replace(/\s+/g, '')}`} class="hover:underline font-medium">{parts[1]}</a>
+									</span>
+								</div>
+							);
+						}
+						return (
+							<div class="mt-1 pt-0.5 border-t border-gray-100 flex items-center gap-1.5 text-[11px] text-gray-600">
+								<Icon class={"size-3 text-[#449399] shrink-0"} name="mdi:phone" />
+								<span>{item.contact}</span>
+							</div>
+						);
+					})()}
+				</li>
+			))
+		}
+	</ul>
+</div>
